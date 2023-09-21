@@ -1,59 +1,40 @@
 {
-  "name": "gamezone",
-  "version": "0.1.0",
+  "name": "starter",
   "private": true,
-  "dependencies": {
-    "@syncfusion/ej2": "^19.4.48",
-    "@syncfusion/ej2-react-calendars": "^19.4.48",
-    "@syncfusion/ej2-react-charts": "^19.4.50",
-    "@syncfusion/ej2-react-dropdowns": "^19.4.52",
-    "@syncfusion/ej2-react-grids": "^19.4.50",
-    "@syncfusion/ej2-react-inputs": "^19.4.52",
-    "@syncfusion/ej2-react-kanban": "^19.4.48",
-    "@syncfusion/ej2-react-popups": "^19.4.52",
-    "@syncfusion/ej2-react-richtexteditor": "^19.4.50",
-    "@syncfusion/ej2-react-schedule": "^19.4.50",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "saas": "^1.0.0",
-    "sass": "^1.66.1"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.9",
+    "@mui/x-data-grid": "^6.9.2",
+    "@tanstack/react-query": "^4.29.19",
+    "bootstrap": "^5.3.2",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "react-use-cart": "^1.13.0",
+    "recharts": "^2.7.2",
+    "sass": "^1.63.6"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "eslint": "^8.9.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "postcss": "^8.4.6",
-    "tailwindcss": "^3.0.19"
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0"
   }
 }

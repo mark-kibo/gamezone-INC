@@ -1,0 +1,87 @@
+import {
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import "./single.scss";
+
+
+type Props = {
+  id: number;
+  image?: string;
+  name: string;
+  description: string;
+  category:string;
+  price:number;
+};
+
+const Single = (props: Props) => {
+  return (
+    <div className="single">
+      <div className="view">
+        <div className="info">
+          <div className="topInfo">
+            {props.image && <img src={props.image} alt="" />}
+            <h1>{props.name}</h1>
+            <button>Update</button>
+          </div>
+          <div className="details">
+              <div className="item">
+                <span className="itemTitle"></span>
+                <span className="itemValue">{props.description}</span>
+              </div>
+          </div>
+        </div>
+        <hr />
+          {/* <div className="chart">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart
+                width={500}
+                height={300}
+                data={props.chart.data}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                {props.chart.dataKeys.map((dataKey) => (
+                  <Line
+                    type="monotone"
+                    dataKey={dataKey.name}
+                    stroke={dataKey.color}
+                  />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          </div> */}
+      </div>
+      {/* <div className="activities">
+        <h2>Latest Activities</h2>
+        {props.activities && (
+          <ul>
+            {props.activities.map((activity) => (
+              <li key={activity.text}>
+                <div>
+                  <p>{activity.text}</p>
+                  <time>{activity.time}</time>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div> */}
+    </div>
+  );
+};
+
+export default Single;
