@@ -7,6 +7,7 @@ const Cart = () => {
     
     const[checkOut, setCheckOut]=useState(false)
     let [error, setError] = useState([])
+    let[loading, setLoading]= useState(false)
     const{authTokens}=useContext(AuthContext)
     const { 
         isEmpty,
@@ -49,17 +50,21 @@ const Cart = () => {
                 sale_price: item.itemTotal,
                 quantity_sold: item.quantity,
             };
-    
+            console.log(salesData)
+            setLoading(true);
             // Call postData function for the item
             const data = await postData(salesData);
-    
+            console.log(data)
             // Check if the response has a 'message' key
-            if (data.message) {
+            if (data['MESSAGE'] || data.error) {
+                console.log(data)
+                setLoading(false)
+                setError(data.error)
+                data['MESSAGE']? removeItem(item.id) : ""
                 // If 'message' exists, add it to the errors array
-            } else {
-                // If no 'message', remove the item from the cart
-                removeItem(item.id);
-            }
+            } 
+                
+               
         });
         console.log(errors)
     
@@ -72,7 +77,7 @@ const Cart = () => {
     
 
     const postData=async (salesdata)=>{
-        let response=await fetch("http://127.0.0.1:8000/api/new/sales/", {
+        let response=await fetch(`http://127.0.0.1:8000/api/new/sales/`, {
             method:"POST",
             headers:{
                 "Authorization": "Bearer " + authTokens.access,
@@ -93,23 +98,23 @@ const Cart = () => {
         <div className='cart'>
             {error}
            <div className="shopping-cart">
-                    <div className="title">
-                        Stock Sale
-
+                    <div className="title" style={{padding: "5px", marginLeft:"10px"}}>
+                        Stock sale
+                        <button onClick={()=>(emptyCart())} style={{padding:"10px", marginLeft:"5px" , background:"red"}}>Empty cart</button>
                     </div>
                     {!isEmpty && items.map(item=>(
                             <div className="item">
                             <div className="buttons">
-                            <span className="delete-btn" onClick={()=>removeItem(item.id)}>
-                                <button  >X</button>
+                            <span className="delete-btn" onClick={()=>removeItem(item.id)} style={{color: "red"}}>
+                                X
                             </span>
                             <span className="like-btn"></span>
                             </div>
                         
                         
                             <div className="description">
-                            <span>Maison Margiela</span>
-                            <span>Future Sneakers</span>
+                            <span>{item.name}</span>
+                            <span>{item.category}</span>
                             <span>White</span>
                             </div>
                         
@@ -131,7 +136,7 @@ const Cart = () => {
                     {cartTotal === 0 ?(<button disabled>Checkout</button>): (<button onClick={()=>{
                         setCheckOut(true)
                         handlePost()
-                    }}>Checkout</button>) } 
+                    }}>{loading ? "making sale ....." : "checkout"}</button>) } 
                     </div>
                     </div>
                 </div>

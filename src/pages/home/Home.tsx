@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import BarChartBox from "../../components/barChartBox/BarChartBox";
-import BigChartBox from "../../components/bigChartBox/BigChartBox";
-import ChartBox from "../../components/chartBox/ChartBox";
-import PieChartBox from "../../components/pieCartBox/PieChartBox";
-import TopBox from "../../components/topBox/TopBox";
+import BarChartBox from "../../components/barChartBox/BarChartBox.tsx";
+import BigChartBox from "../../components/bigChartBox/BigChartBox.tsx";
+import ChartBox from "../../components/chartBox/ChartBox.tsx";
+import PieChartBox from "../../components/pieCartBox/PieChartBox.tsx";
+import TopBox from "../../components/topBox/TopBox.tsx";
 import AuthContext from "../../context/AuthContext";
 import OverviewContext from "../../context/OverViewContext";
 import {
@@ -39,19 +39,19 @@ const Home = () => {
         <TopBox />
       </div>
       <div className="box box2">
-        <ChartBox {...chartBoxUser} totalusers={overview.totalusers} totalproducts={overview.total_products} />
+        <ChartBox {...chartBoxUser} totalusers={overview.totalusers}  />
       </div>
       <div className="box box3">
-        <ChartBox {...chartBoxProduct}  totalusers={overview.totalusers} totalproducts={overview.total_products} />
+        <ChartBox {...chartBoxProduct}   totalproducts={overview.total_products} />
       </div>
       <div className="box box4">
         <PieChartBox />
       </div>
       <div className="box box5">
-        <ChartBox {...chartBoxConversion}  totalusers={overview.totalusers} totalproducts={overview.total_products} />
+        <ChartBox {...chartBoxConversion}  total_profit={overview.profit} />
       </div>
       <div className="box box6">
-        <ChartBox {...chartBoxRevenue}  totalusers={overview.totalusers} totalproducts={overview.total_products}/>
+        <ChartBox {...chartBoxRevenue}  totalusers={overview.totalusers} totalproducts={overview.total_products} total_revenue={overview.total_revenue}/>
       </div>
       <div className="box box7">
         <BigChartBox />

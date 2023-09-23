@@ -3,7 +3,7 @@ import "./navbar.scss";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
-import { green } from "@mui/material/colors";
+
 const Navbar = () => {
 
   const{user, logoutUser}=useContext(AuthContext)
@@ -14,6 +14,7 @@ const Navbar = () => {
       <div className="logo">
         <img src="logo.svg" alt="" />
         <span>GAMEZONE INC</span>
+        
       </div>
       <div className="icons">
         <img src="/app.svg" alt="" className="icon" />

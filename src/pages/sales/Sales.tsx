@@ -46,7 +46,7 @@ const Sales = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch("http://localhost:8000/api/new/sales/list/", {
+      fetch("http://localhost:8000/api/new/sales/List/", {
         method:"GET",
         headers:{
           "Authorization": "Bearer " + authTokens.access

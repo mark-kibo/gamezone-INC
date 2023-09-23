@@ -1,14 +1,14 @@
-import Home from "./pages/home/Home";
+import Home from "./pages/home/Home.tsx";
 import { Routes, Route, Outlet } from "react-router-dom";
-import Users from "./pages/users/Users";
-import Products from "./pages/products/Products";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
-import Menu from "./components/menu/Menu";
-import Login from "./pages/login/Login";
+import Users from "./pages/users/Users.tsx";
+import Products from "./pages/products/Products.tsx";
+import Navbar from "./components/navbar/Navbar.tsx";
+import Footer from "./components/footer/Footer.tsx";
+import Menu from "./components/menu/Menu.tsx";
+import Login from "./pages/login/Login.tsx";
 import "./styles/global.scss";
 import User from "./pages/user/User";
-import Product from "./pages/product/Product";
+import Product from "./pages/product/Product.tsx";
 import {
   QueryClient,
   QueryClientProvider,
@@ -16,8 +16,8 @@ import {
 import PrivateRoute from "./utils/PrivateRoute";
 import ProfilePage from "./pages/profile/ProfilePage";
 import { CartProvider } from "react-use-cart";
-import Cart from "./components/Cart/Cart";
-import Sales from "./pages/sales/Sales";
+import Cart from "./components/Cart/Cart.tsx";
+import Sales from "./pages/sales/Sales.tsx";
 
 
 const queryClient = new QueryClient();
@@ -26,18 +26,18 @@ function App() {
   const Layout = () => {
     return (
       <div className="main">
-        <CartProvider>
+        
         <Navbar />
-        </CartProvider>
+        
         <div className="container">
           <div className="menuContainer">
             <Menu />
           </div>
           <div className="contentContainer">
             <QueryClientProvider client={queryClient}>
-              <CartProvider>
+              
               <Outlet />
-              </CartProvider>
+              
             </QueryClientProvider>
             
           </div>

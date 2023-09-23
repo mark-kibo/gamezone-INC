@@ -139,7 +139,7 @@ export const chartBoxRevenue = {
   title: "Total Revenue",
   number: "$56.432",
   dataKey: "revenue",
-  percentage: -12,
+  percentage: 12,
   chartData: [
     { name: "Sun", revenue: 400 },
     { name: "Mon", revenue: 600 },
@@ -153,7 +153,7 @@ export const chartBoxRevenue = {
 export const chartBoxConversion = {
   color: "gold",
   icon: "/conversionIcon.svg",
-  title: "Total Ratio",
+  title: "Profit Earned",
   number: "2.6",
   dataKey: "ratio",
   percentage: 12,

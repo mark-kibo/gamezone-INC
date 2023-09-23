@@ -12,6 +12,8 @@ type Props = {
   chartData: object[];
   totalusers:number;
   totalproducts:number;
+  total_revenue:number;
+  total_profit:number;
 };
 
 const ChartBox = (props: Props) => {
@@ -24,11 +26,14 @@ const ChartBox = (props: Props) => {
         </div>
         <h1>{props.title === "Total Users" ? props.totalusers :""}
             {props.title === "Total Products" ? props.totalproducts :""}
+            {props.title === "Total Revenue" ? props.total_revenue :""}
+            {props.title === "Profit Earned" ? props.total_profit :""}
             
         </h1>
-        <Link to={props.title === "Total Users"? "users" : "products"} style={{ color: props.color }}>
-          View all
-        </Link>
+        { props.title === "Profit Earned" || props.title === "Total Revenue" ? ("") : ( <Link to={props.title === "Total Users"? "users" : "products"} style={{ color: props.color }}>
+        View all
+        </Link>) }
+       
       </div>
       <div className="chartInfo">
         <div className="chart">
