@@ -10,6 +10,7 @@ import {
   barChartBoxRevenue,
   barChartBoxVisit,
   chartBoxConversion,
+  chartBoxLoss,
   chartBoxProduct,
   chartBoxRevenue,
   chartBoxUser,
@@ -49,6 +50,9 @@ const Home = () => {
       </div>
       <div className="box box5">
         <ChartBox {...chartBoxConversion}  total_profit={overview.profit} />
+      </div>
+      <div className="box box5">
+        <ChartBox {...chartBoxLoss}  total_loss={overview.total_loss} />
       </div>
       <div className="box box6">
         <ChartBox {...chartBoxRevenue}  totalusers={overview.totalusers} totalproducts={overview.total_products} total_revenue={overview.total_revenue}/>

@@ -18,7 +18,7 @@ import ProfilePage from "./pages/profile/ProfilePage";
 import { CartProvider } from "react-use-cart";
 import Cart from "./components/Cart/Cart.tsx";
 import Sales from "./pages/sales/Sales.tsx";
-
+import Loss from "./pages/loss/loss.tsx";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +60,7 @@ function App() {
             <Route path='products/:id' element={<Product/>}/>
             <Route path='cart' element={<Cart/>}/>
             <Route path="sales" element={<Sales/>}/>
+            <Route path="loss" element={<Loss />}/>
           </Route>
       </Route>
       <Route path="/login" element={<Login/>}/>

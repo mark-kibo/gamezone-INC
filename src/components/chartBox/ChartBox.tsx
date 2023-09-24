@@ -14,6 +14,7 @@ type Props = {
   totalproducts:number;
   total_revenue:number;
   total_profit:number;
+  total_loss:number;
 };
 
 const ChartBox = (props: Props) => {
@@ -28,6 +29,8 @@ const ChartBox = (props: Props) => {
             {props.title === "Total Products" ? props.totalproducts :""}
             {props.title === "Total Revenue" ? props.total_revenue :""}
             {props.title === "Profit Earned" ? props.total_profit :""}
+            {props.title === "Total Loss incurred" ? props.total_loss :""}
+            
             
         </h1>
         { props.title === "Profit Earned" || props.title === "Total Revenue" ? ("") : ( <Link to={props.title === "Total Users"? "users" : "products"} style={{ color: props.color }}>

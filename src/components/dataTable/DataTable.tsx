@@ -81,6 +81,7 @@ const DataTable = (props: Props) => {
   return (
     <div className="dataTable">
       {Loading && "deleting..."}
+      
       <DataGrid
         className="dataGrid"
         rows={props.rows}
