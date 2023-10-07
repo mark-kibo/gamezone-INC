@@ -45,6 +45,12 @@ export const menu = [
         url: "/loss",
         icon: "order.svg",
       },
+      {
+        id: 5,
+        title: "expenses",
+        url: "/expenses",
+        icon: "order.svg",
+      },
     ],
   },
  
@@ -145,6 +151,23 @@ export const chartBoxRevenue = {
   title: "Total Revenue",
   number: "$56.432",
   dataKey: "revenue",
+  percentage: 12,
+  chartData: [
+    { name: "Sun", revenue: 400 },
+    { name: "Mon", revenue: 600 },
+    { name: "Tue", revenue: 500 },
+    { name: "Wed", revenue: 700 },
+    { name: "Thu", revenue: 400 },
+    { name: "Fri", revenue: 500 },
+    { name: "Sat", revenue: 450 },
+  ],
+};
+export const chartBoxExpense = {
+  color: "teal",
+  icon: "/revenueIcon.svg",
+  title: "Total Expenses",
+  number: "$56.432",
+  dataKey: "expense",
   percentage: 12,
   chartData: [
     { name: "Sun", revenue: 400 },

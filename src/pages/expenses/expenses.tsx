@@ -1,6 +1,6 @@
 import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
-import "./Users.scss";
+import "./expenses.scss";
 import { useContext, useState } from "react";
 import Add from "../../components/add/Add";
 import { useQuery } from "@tanstack/react-query";
@@ -10,44 +10,32 @@ import AuthContext from "../../context/AuthContext";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
+ 
   {
-    field: "img",
-    headerName: "Avatar",
-    width: 100,
-    renderCell: (params) => {
-      return <img src={params.row.img || "/noavatar.png"} alt="" />;
-    },
-  },
-  {
-    field: "username",
+    field: "name",
     type: "text",
-    headerName: "username",
+    headerName: "name",
     width: 150,
   },
   {
-    field: "email",
-    type: "email",
-    headerName: "Email",
+    field: "amount",
+    type: "number",
+    headerName: "amount",
     width: 200,
   },
-  {
-    field: "password",
-    type: "password",
-    headerName: "password",
-    width: 200,
-  }
 ];
 
-const Users = () => {
+const Expenses = () => {
   const [open, setOpen] = useState(false);
   const{authTokens}= useContext(AuthContext)
   console.log(authTokens)
   // TEST THE API
 
   const { isLoading, data } = useQuery({
-    queryKey: ["allusers"],
+    queryKey: ["allexpenses"],
     queryFn: () =>
-      fetch("https://gamezone-rest-api.onrender.com/api/accounts/users/", {
+      fetch("https://gamezone-rest-api.onrender.com/api/expenses/", {
+        method:"GET",
         headers:{
           "Authorization": "Bearer " + authTokens.access
         }
@@ -55,12 +43,13 @@ const Users = () => {
         (res) => res.json()
       ),
   });
+  console.log(data)
 
   return (
-    <div className="users">
+    <div className="expenses">
       <div className="info">
-        <h1>Users</h1>
-        <button onClick={() => setOpen(true)}>Add New User</button>
+        <h1>Expenses</h1>
+        <button onClick={() => setOpen(true)}>Add expenses</button>
       </div>
      
       {/* TEST THE API */}
@@ -68,11 +57,11 @@ const Users = () => {
       {isLoading ? (
         "Loading..."
       ) : (
-        <DataTable slug="users" columns={columns} rows={data} />
+        <DataTable slug="expenses" columns={columns} rows={data} />
       )}
-      {open && <Add slug="users" columns={columns} setOpen={setOpen} />}
+      {open && <Add slug="expenses" columns={columns} setOpen={setOpen} />}
     </div>
   );
 };
 
-export default Users;
+export default Expenses;

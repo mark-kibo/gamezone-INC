@@ -32,9 +32,9 @@ const DataTable = (props: Props) => {
     mutationFn: (id: number, urlEndpoint: string) => {
       setLoading(true)
       if(props.slug === "users"){
-        urlEndpoint=`http://localhost:8000/api/accounts/${props.slug}/${id}/remove/`
+        urlEndpoint=`https://gamezone-rest-api.onrender.com/api/accounts/${props.slug}/${id}/remove/`
       }else if( props.slug === "products"){
-        urlEndpoint=`http://localhost:8000/api/new/${props.slug}/${id}/`
+        urlEndpoint=`https://gamezone-rest-api.onrender.com/api/new/${props.slug}/${id}/`
       }
       return fetch(urlEndpoint, {
         method: "delete",
@@ -62,18 +62,23 @@ const DataTable = (props: Props) => {
     renderCell: (params) => {
       console.log(params.row.id)
       return (
-        <div className="action">
-          <Link to={`/${props.slug}/${params.row.id}`}>
-            <img src="/view.svg" alt="" />
-          </Link>
-          {props.slug === "sales" ? "" :  (<div className="delete" onClick={() => handleDelete(params.row.id)}>
-            <img src="/delete.svg" alt="" />
-          </div>) }
-         
-         {props.slug === "products" && (<div className="addcart" onClick={() => addItem(params.row)}>
-            <ShoppingCartIcon className="icon"/>
-          </div>)}
-        </div>
+        props.slug !== "expenses" ? (
+          <div className="action">
+            <Link to={`/${props.slug}/${params.row.id}`}>
+              <img src="/view.svg" alt="" />
+            </Link>
+            {props.slug === "sales" ? "" : (
+              <div className="delete" onClick={() => handleDelete(params.row.id)}>
+                <img src="/delete.svg" alt="" />
+              </div>
+            )}
+            {props.slug === "products" && (
+              <div className="addcart" onClick={() => addItem(params.row)}>
+                <ShoppingCartIcon className="icon" />
+              </div>
+            )}
+          </div>
+        ) : null
       );
     },
   };

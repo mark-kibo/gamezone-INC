@@ -52,7 +52,7 @@ const Products = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["allproducts"],
     queryFn: () =>
-      fetch('http://localhost:8000/api/new/products/',{
+      fetch('https://gamezone-rest-api.onrender.com/api/new/products/',{
         method:"GET",
         headers:{
           "Authorization": "Bearer " + authTokens.access

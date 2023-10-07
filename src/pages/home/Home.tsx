@@ -10,6 +10,7 @@ import {
   barChartBoxRevenue,
   barChartBoxVisit,
   chartBoxConversion,
+  chartBoxExpense,
   chartBoxLoss,
   chartBoxProduct,
   chartBoxRevenue,
@@ -24,7 +25,7 @@ const Home = () => {
   // console.log(data)
   useEffect(()=>{
       console.log("me")
-      fetch("http://127.0.0.1:8000/api/auth/overview/", {
+      fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
         method:"GET",
         headers:{
             "Authorization": "Bearer " + authTokens.access
@@ -56,6 +57,9 @@ const Home = () => {
       </div>
       <div className="box box6">
         <ChartBox {...chartBoxRevenue}  totalusers={overview.totalusers} totalproducts={overview.total_products} total_revenue={overview.total_revenue}/>
+      </div>
+      <div className="box box6">
+        <ChartBox {...chartBoxExpense}  totalexpenses={overview.total_expense}/>
       </div>
       <div className="box box7">
         <BigChartBox />

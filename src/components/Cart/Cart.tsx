@@ -77,7 +77,7 @@ const Cart = () => {
     
 
     const postData=async (salesdata)=>{
-        let response=await fetch(`http://127.0.0.1:8000/api/new/sales/`, {
+        let response=await fetch(`https://gamezone-rest-api.onrender.com/api/new/sales/`, {
             method:"POST",
             headers:{
                 "Authorization": "Bearer " + authTokens.access,

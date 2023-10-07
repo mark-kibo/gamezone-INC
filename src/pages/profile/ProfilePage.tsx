@@ -12,7 +12,7 @@ const ProfilePage = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`http://localhost:8000/api/accounts/profile/${params.id}/`).then(
+      fetch(`https://gamezone-rest-api.onrender.com/api/accounts/profile/${params.id}/`).then(
         (res) => res.json()
       ),
   });

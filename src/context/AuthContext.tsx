@@ -16,12 +16,15 @@ export const AuthProvider=({children})=>{
     let navigate=useNavigate()
     let[overview, setOverview]= useState()
     // store my jwt token and user
-    let [authTokens, setAuthTokens]=useState(()=>{
-        localStorage.getItem("authtokens") ? JSON.parse(localStorage.getItem("authtokens")) : null
-    })
-    let [user, setUser]=useState(()=>{
-        localStorage.getItem("authtokens") ? jwt_decode(localStorage.getItem("authtokens")) : null
-    })
+    let [authTokens, setAuthTokens] = useState(() => {
+        const storedTokens = localStorage.getItem("authtokens");
+        return storedTokens ? JSON.parse(storedTokens) : null;
+      });
+      
+      let [user, setUser] = useState(() => {
+        const storedTokens = localStorage.getItem("authtokens");
+        return storedTokens ? jwt_decode(storedTokens) : null;
+      })
     let [loading, setLoading]=useState(true)
 
     // useeffct function tto get
@@ -36,7 +39,7 @@ export const AuthProvider=({children})=>{
         e.preventDefault()
         console.log("form submitted!")
         // create my response
-        let response=await fetch("http://127.0.0.1:8000/api/auth/token/", {
+        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -66,7 +69,7 @@ export const AuthProvider=({children})=>{
 
     // UPDATE OUR ACCESS TOKEN FROM REFRESH
     let updateToken=async()=>{
-        let response=await fetch("http://127.0.0.1:8000/api/auth/token/refresh/", {
+        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/refresh/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -107,7 +110,7 @@ export const AuthProvider=({children})=>{
     }, [authTokens, loading])
 
     function getOverview(){
-        fetch("http://127.0.0.1:8000/api/auth/overview/", {
+        fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
             method:"GET",
             headers:{
                 "Authorization": "Bearer " + authTokens.access

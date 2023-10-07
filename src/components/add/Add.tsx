@@ -21,15 +21,28 @@ const Add = (props: Props) => {
   let formData={}
 
   let urlPoint;
+  
   if(props.slug === "users"){
       urlPoint="accounts"
-  }else{
+  }else if(props.slug === "products"){
       urlPoint = "new"
+  }else{
+    urlPoint = "expenses"
   }
+
   const mutation = useMutation({
     mutationFn: () => {
       setLoading(true)
-      return fetch(`http://localhost:8000/api/${urlPoint}/${props.slug}/`, {
+      return props.slug !== "expenses" ? (fetch(`https://gamezone-rest-api.onrender.com/api/${urlPoint}/${props.slug !== "expenses" ? props.slug : ""  }/`, {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + authTokens.access
+        },
+        body: JSON.stringify(formData),
+      })):(
+        fetch(`https://gamezone-rest-api.onrender.com/api/${urlPoint}/`, {
         method: "post",
         headers: {
           Accept: "application/json",
@@ -38,6 +51,7 @@ const Add = (props: Props) => {
         },
         body: JSON.stringify(formData),
       })
+      )
       .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText);

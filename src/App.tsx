@@ -19,6 +19,7 @@ import { CartProvider } from "react-use-cart";
 import Cart from "./components/Cart/Cart.tsx";
 import Sales from "./pages/sales/Sales.tsx";
 import Loss from "./pages/loss/loss.tsx";
+import Expenses from "./pages/expenses/expenses.tsx";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +62,7 @@ function App() {
             <Route path='cart' element={<Cart/>}/>
             <Route path="sales" element={<Sales/>}/>
             <Route path="loss" element={<Loss />}/>
+            <Route path="expenses" element={<Expenses/>}/>
           </Route>
       </Route>
       <Route path="/login" element={<Login/>}/>

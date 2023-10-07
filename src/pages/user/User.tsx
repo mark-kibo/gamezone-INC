@@ -16,7 +16,7 @@ const User = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["allusers"],
     queryFn: () =>
-      fetch(`http://localhost:8000/api/accounts/users/${params.id}/`,{
+      fetch(`https://gamezone-rest-api.onrender.com/api/accounts/users/${params.id}/`,{
         headers:{
           "Authorization": "Bearer " + authTokens.access
         }
