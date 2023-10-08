@@ -8,10 +8,10 @@
   grid-auto-rows: minmax(180px, auto);
   grid-auto-flow: dense;
 
-  @include xl{
+  @include xl {
     grid-template-columns: repeat(3, 1fr);
   }
-  @include lg{
+  @include lg {
     grid-template-columns: repeat(2, 1fr);
   }
   @include md {
@@ -19,6 +19,7 @@
   }
   @include sm {
     grid-auto-rows: minmax(120px, auto);
+    grid-template-columns: repeat(1, 1fr); // Ensure one column on small screens
   }
 
   .box {
@@ -45,3 +46,4 @@
     }
   }
 }
+

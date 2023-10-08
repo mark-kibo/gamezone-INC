@@ -5,10 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
-  
 }
-
 
 a {
   text-decoration: none;
@@ -20,21 +17,19 @@ a {
   background-color: $main-bg;
   color: $main-color;
   min-height: 100vh;
- 
 }
 
 .container {
   display: flex;
+  flex-wrap: wrap; /* Allow containers to wrap on smaller screens */
 }
 
 .menuContainer {
-  width: 250px;
+  width: 100%; /* Take full width on small screens */
   padding: 5px 20px;
   border-right: 2px solid $soft-bg;
-  
-
-  @include lg{
-    width: max-content;
+  @include lg {
+    width: 250px; /* Set the width back for larger screens */
   }
 }
 

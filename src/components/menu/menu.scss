@@ -14,8 +14,8 @@
       color: $soft-color;
       text-transform: uppercase;
 
-      @include lg{
-        display: none;
+      @include lg {
+        display: none; /* Hide the title on larger screens */
       }
     }
 
@@ -30,9 +30,9 @@
         background-color: $soft-bg;
       }
 
-      .listItemTitle{
-        @include lg{
-          display: none;
+      .listItemTitle {
+        @include lg {
+          display: none; /* Hide the listItemTitle on larger screens */
         }
       }
     }
