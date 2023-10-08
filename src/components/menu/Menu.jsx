@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Menu.scss";
+import "./menu.scss";
 import { menu } from "../../data";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
