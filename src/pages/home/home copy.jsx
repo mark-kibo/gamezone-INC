@@ -5,17 +5,19 @@ import BigChartBox from "../../components/bigChartBox/BigChartBox.jsx";
  // Fix the extension to .jsx
 import TopBox from "../../components/topBox/TopBox.jsx";
 import AuthContext from "../../context/AuthContext.jsx";
-import { barChartBoxRevenue, barChartBoxVisit, chartBoxConversion, chartBoxExpense } from "../../data.js";
+
 import "./home.scss";
 import ChartBox from "../../components/chartBox/ChartBox copy.jsx";
 import PieChartBox from "../../components/pieCartBox/pieChartBox copy.jsx";
+import { chartBoxUser, chartBoxRevenue, chartBoxExpense, chartBoxLoss, chartBoxProduct, chartBoxConversion} from "../../data.js";
+
 
 const Home = () => {
-  const { authTokens }= useContext(AuthContext)
-  let [overview, setOverview]=useState([])
+  const { authTokens }= useContext(AuthContext);
+  let [overview, setOverview]=useState([]);
   // console.log(data)
   useEffect(()=>{
-      console.log("me")
+      console.log("me");
       fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
         method:"GET",
         headers:{

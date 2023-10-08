@@ -1,4 +1,4 @@
-import Home from "./pages/home/home.jsx";
+
 import { Routes, Route, Outlet } from "react-router-dom";
 import Users from "./pages/users/Users.jsx";
 import Products from "./pages/products/Products.jsx";
@@ -21,6 +21,7 @@ import Sales from "./pages/sales/Sales.jsx";
 import Loss from "./pages/loss/Loss.jsx";
 import Expenses from "./pages/expenses/expenses.jsx";
 import Cart from "./components/Cart/Cart copy.jsx";
+import Home from "./pages/home/home copy.jsx";
 
 const queryClient = new QueryClient();
 
