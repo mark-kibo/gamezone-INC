@@ -1,22 +1,17 @@
 import {
   DataGrid,
-  GridColDef,
   GridToolbar,
 } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
-import { useMutation, useQueryClient, refetchQueries } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useCart } from "react-use-cart"
-type Props = {
-  columns: GridColDef[];
-  rows: object[];
-  slug: string;
-};
 
-const DataTable = (props: Props) => {
+
+const DataTable = (props) => {
 
   const { addItem } = useCart()
   const [Loading, setLoading] = useState(false)
@@ -29,7 +24,7 @@ const DataTable = (props: Props) => {
   
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: (id: number, urlEndpoint: string) => {
+    mutationFn: (id, urlEndpoint) => {
       setLoading(true)
       if(props.slug === "users"){
         urlEndpoint=`https://gamezone-rest-api.onrender.com/api/accounts/${props.slug}/${id}/remove/`
@@ -49,13 +44,13 @@ const DataTable = (props: Props) => {
     }
   });
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id) => {
     //delete the item
     mutation.mutate(id, urlEndpoint)
   };
 
 
-  const actionColumn: GridColDef = {
+  const actionColumn = {
     field: "actions",
     headerName: "Actions",
     width: 200,

@@ -1,16 +1,12 @@
-import { GridColDef } from "@mui/x-data-grid";
+
 import "./add.scss";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 
-type Props = {
-  slug: string;
-  columns: GridColDef[];
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
 
-const Add = (props: Props) => {
+
+const Add = (props) => {
   const [Loading ,setLoading]=useState(false)
 
   // TEST THE API
@@ -73,7 +69,7 @@ const Add = (props: Props) => {
     },
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null)
     e.target.querySelectorAll('input').forEach(tag=>{

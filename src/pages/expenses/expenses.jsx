@@ -1,4 +1,4 @@
-import { GridColDef } from "@mui/x-data-grid";
+
 import DataTable from "../../components/dataTable/DataTable";
 import "./expenses.scss";
 import { useContext, useState } from "react";
@@ -8,7 +8,7 @@ import AuthContext from "../../context/AuthContext";
 
 
 
-const columns: GridColDef[] = [
+const columns= [
   { field: "id", headerName: "ID", width: 90 },
  
   {

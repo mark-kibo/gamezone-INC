@@ -1,37 +1,44 @@
 import { useContext, useState } from "react";
-import "./loss.scss";
+import "./Products.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
-import { GridColDef } from "@mui/x-data-grid";
+
 import { useQuery } from "@tanstack/react-query";
 import AuthContext from "../../context/AuthContext";
 
-const columns: GridColDef[] = [
+const columns= [
   { field: "id", headerName: "ID", width: 90 },
   {
-    field: "loss_name",
+    field: "name",
     type: "text",
-    headerName: "Name",
+    headerName: "name",
     width: 250,
   },
   {
-    field: "loss_amount",
+    field: "category",
     type: "text",
-    headerName: "Amount",
+    headerName: "Category",
     width: 150,
   },
   {
-    field: "loss_description",
+    field: "description",
     type: "text",
     headerName: "Description",
     width: 250,
   },
   {
-    field: "loss_to_product",
-    type: "text",
-    headerName: "Product Associated",
-    width: 250,
+    field: "price",
+    type: "number",
+    headerName: "Price",
+    width: 200,
   },
+  {
+    field: "quantity",
+    headerName: "quantity",
+    type: "number",
+    width: 200,
+  },
+  
 ];
 
 const Products = () => {
@@ -44,7 +51,7 @@ const Products = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["allproducts"],
     queryFn: () =>
-      fetch('https://gamezone-rest-api.onrender.com/api/new/loss/',{
+      fetch('https://gamezone-rest-api.onrender.com/api/new/products/',{
         method:"GET",
         headers:{
           "Authorization": "Bearer " + authTokens.access
@@ -56,19 +63,19 @@ const Products = () => {
 
   console.log(data)
   return (
-    <div className="loss">
+    <div className="products">
       <div className="info">
-        <h1>Loss</h1>
-        <button onClick={() => setOpen(true)}>Add loss</button>
+        <h1>Stock</h1>
+        <button onClick={() => setOpen(true)}>Add New Products</button>
       </div>
       {/* TEST THE API */}
 
       {isLoading ? (
         "Loading..."
       ) : (
-        <DataTable slug="loss" columns={columns} rows={data} />
+        <DataTable slug="products" columns={columns} rows={data} />
       )}
-      {open && <Add slug="loss" columns={columns} setOpen={setOpen} />}
+      {open && <Add slug="products" columns={columns} setOpen={setOpen} />}
     </div>
   );
 };

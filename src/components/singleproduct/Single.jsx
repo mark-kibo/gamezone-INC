@@ -10,16 +10,8 @@ import {
 import "./single.scss";
 
 
-type Props = {
-  id: number;
-  image?: string;
-  name: string;
-  description: string;
-  category:string;
-  price:number;
-};
 
-const Single = (props: Props) => {
+const Single = (props) => {
   return (
     <div className="single">
       <div className="view">

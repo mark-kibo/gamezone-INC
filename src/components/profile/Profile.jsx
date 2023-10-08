@@ -12,14 +12,8 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 
-type Props = {
-  id: number;
-  country: string;
-  location: string;
-  image?:string;
-};
 
-const Profile = (props: Props) => {
+const Profile = (props) => {
   let{user} = useContext(AuthContext)
   return (
     <div className="single">

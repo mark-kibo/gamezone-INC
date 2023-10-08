@@ -1,25 +1,26 @@
-import Home from "./pages/home/Home.tsx";
+import Home from "./pages/home/home.jsx";
 import { Routes, Route, Outlet } from "react-router-dom";
-import Users from "./pages/users/Users.tsx";
-import Products from "./pages/products/Products.tsx";
-import Navbar from "./components/navbar/Navbar.tsx";
-import Footer from "./components/footer/Footer.tsx";
-import Menu from "./components/menu/Menu.tsx";
-import Login from "./pages/login/Login.tsx";
+import Users from "./pages/users/Users.jsx";
+import Products from "./pages/products/Products.jsx";
+import Navbar from "./components/navbar/Navbar.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import Menu from "./components/menu/Menu.jsx";
+import Login from "./pages/login/Login.jsx";
 import "./styles/global.scss";
-import User from "./pages/user/User";
-import Product from "./pages/product/Product.tsx";
+import User from "./pages/user/User.jsx";
+import Product from "./pages/product/Product.jsx";
 import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import PrivateRoute from "./utils/PrivateRoute";
-import ProfilePage from "./pages/profile/ProfilePage";
+import PrivateRoute from "./utils/PrivateRoute.jsx";
+import ProfilePage from "./pages/profile/ProfilePage.jsx";
 import { CartProvider } from "react-use-cart";
-import Cart from "./components/Cart/Cart.tsx";
-import Sales from "./pages/sales/Sales.tsx";
-import Loss from "./pages/loss/loss.tsx";
-import Expenses from "./pages/expenses/expenses.tsx";
+
+import Sales from "./pages/sales/Sales.jsx";
+import Loss from "./pages/loss/Loss.jsx";
+import Expenses from "./pages/expenses/expenses.jsx";
+import Cart from "./components/Cart/Cart.Jsx";
 
 const queryClient = new QueryClient();
 
