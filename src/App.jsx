@@ -20,7 +20,7 @@ import { CartProvider } from "react-use-cart";
 import Sales from "./pages/sales/Sales.jsx";
 import Loss from "./pages/loss/Loss.jsx";
 import Expenses from "./pages/expenses/expenses.jsx";
-import Cart from "./components/Cart/Cart.Jsx";
+import Cart from "./components/Cart/Cart copy.jsx";
 
 const queryClient = new QueryClient();
 
