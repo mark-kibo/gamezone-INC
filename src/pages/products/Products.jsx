@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import "./Products.scss";
+import "./products.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
 
