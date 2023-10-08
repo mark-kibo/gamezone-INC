@@ -1,6 +1,6 @@
 
 import DataTable from "../../components/dataTable/DataTable";
-import "./Users.scss";
+import "./users.scss";
 import { useContext, useState } from "react";
 import Add from "../../components/add/Add";
 import { useQuery } from "@tanstack/react-query";
