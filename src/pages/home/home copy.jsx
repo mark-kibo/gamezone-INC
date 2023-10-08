@@ -10,7 +10,7 @@ import "./home.scss";
 import ChartBox from "../../components/chartBox/ChartBox copy.jsx";
 import PieChartBox from "../../components/pieCartBox/pieChartBox copy.jsx";
 import { chartBoxUser, chartBoxRevenue, chartBoxExpense, chartBoxLoss, chartBoxProduct, chartBoxConversion} from "../../data.js";
-
+import { barChartBoxRevenue, barChartBoxVisit } from "../../data.js";
 
 const Home = () => {
   const { authTokens }= useContext(AuthContext);
