@@ -13,7 +13,7 @@ const Single = (props) => {
     
     e.preventDefault()
     setLoading(true)
-    const res = await axios.patch(`http://127.0.0.1:8000/api/new/products/${props.id}/` , {formData}, {
+    const res = await axios.patch(`https://gamezone-rest-api.onrender.com/api/new/products/${props.id}/` , {formData}, {
       headers:{
         "Authorization":"Bearer " + authTokens.access
       }
@@ -46,19 +46,7 @@ const Single = (props) => {
             <span className="label-text">Product category</span>
 
           </label>
-          <select className="select select-accent w-full max-w-xs" name="category" defaultChecked={props.category} onChange={handleChange}>
-           
-            <option value="Laptops">Laptops</option>
-            <option value="Desktops">Desktops</option>
-            <option value="Hardware">Hardware Components</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Software">Software</option>
-            <option value="Peripherals">Peripherals</option>
-            <option value="Networking">Networking Devices</option>
-            <option value="Storage">Storage Devices</option>
-            <option value="Audio">Audio Devices (e.g., Earphones)</option>
-            <option value="Chargers">Chargers</option>
-          </select>
+          <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" name="category" defaultValue={props.category} onChange={handleChange} />
         </div>
 
         <div>

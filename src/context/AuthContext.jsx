@@ -38,7 +38,7 @@ export const AuthProvider=({children})=>{
         e.preventDefault()
         // create my response
         // live=https://gamezone-rest-api.onrender.com/
-        let response=await fetch("http://127.0.0.1:8000/api/auth/token/", {
+        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -68,7 +68,7 @@ export const AuthProvider=({children})=>{
 
     // UPDATE OUR ACCESS TOKEN FROM REFRESH
     let updateToken=async()=>{
-        let response=await fetch("http://127.0.0.1:8000/api/auth/token/refresh/", {
+        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/refresh/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -109,7 +109,7 @@ export const AuthProvider=({children})=>{
     }, [authTokens, loading])
 
     function getOverview(){
-        fetch("http://127.0.0.1:8000/api/auth/overview/", {
+        fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
             method:"GET",
             headers:{
                 "Authorization": "Bearer " + authTokens.access
