@@ -28,7 +28,7 @@ const columns= [
 const Expenses = () => {
   const [open, setOpen] = useState(false);
   const{authTokens}= useContext(AuthContext)
-  console.log(authTokens)
+  
   // TEST THE API
 
   const { isLoading, data } = useQuery({
@@ -43,7 +43,7 @@ const Expenses = () => {
         (res) => res.json()
       ),
   });
-  console.log(data)
+  
 
   return (
     <div className="expenses">

@@ -11,7 +11,7 @@ const Product = () => {
   //Fetch data and send to Single Component
   let params=useParams()
   const{authTokens}=useContext(AuthContext)
-  console.log(params.id)
+  
   // fetch data of this single product
   const { isLoading, data } = useQuery({
     queryKey: ["allproducts"],
@@ -25,7 +25,7 @@ const Product = () => {
       ),
   });
   return (
-    <div className="product">
+    <div className="bg-red-200">
       {isLoading ? ("...loading") : (<Single {...data}/>) }
        
     </div>

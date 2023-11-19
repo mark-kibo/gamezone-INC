@@ -7,7 +7,7 @@ import Profile from "../../components/profile/Profile";
 const ProfilePage = () => {
 
   let params=useParams()
-  console.log(params.id)
+  
   // fetch data of this single product
   const { isLoading, data } = useQuery({
     queryKey: ["allusers"],

@@ -54,7 +54,7 @@ const Products = () => {
       ),
   });
 
-  console.log(data)
+  
   return (
     <div className="loss">
       <div className="info">

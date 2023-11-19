@@ -58,12 +58,12 @@ const Add = (props) => {
     onError: (e) => {
       setLoading(false)
       setError(e)
-      console.error("API request error:", e);
+      
       // Handle the error here, you can show a message to the user or perform any other necessary actions.
     },
     onSuccess: () => {
       // Handle the success response here
-      console.log(props.slug)
+      
       setLoading(false)
       queryClient.invalidateQueries([`all${props.slug}`]);
     },
@@ -75,7 +75,7 @@ const Add = (props) => {
     e.target.querySelectorAll('input').forEach(tag=>{
       formData[tag.name]= tag.value
     })
-    console.log(formData)
+    
     try {
       const response = await mutation.mutateAsync();
       props.setOpen(false)

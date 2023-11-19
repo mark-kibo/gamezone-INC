@@ -29,7 +29,6 @@ export const AuthProvider=({children})=>{
 
     // useeffct function tto get
     useEffect(()=>{
-        console.log("new")
         navigate("/")
     }, [user, authTokens])
 
@@ -37,9 +36,9 @@ export const AuthProvider=({children})=>{
     let loginUser=async(e)=>{
         // prevent default for submit
         e.preventDefault()
-        console.log("form submitted!")
         // create my response
-        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/", {
+        // live=https://gamezone-rest-api.onrender.com/
+        let response=await fetch("http://127.0.0.1:8000/api/auth/token/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -69,7 +68,7 @@ export const AuthProvider=({children})=>{
 
     // UPDATE OUR ACCESS TOKEN FROM REFRESH
     let updateToken=async()=>{
-        let response=await fetch("https://gamezone-rest-api.onrender.com/api/auth/token/refresh/", {
+        let response=await fetch("http://127.0.0.1:8000/api/auth/token/refresh/", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -110,7 +109,7 @@ export const AuthProvider=({children})=>{
     }, [authTokens, loading])
 
     function getOverview(){
-        fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
+        fetch("http://127.0.0.1:8000/api/auth/overview/", {
             method:"GET",
             headers:{
                 "Authorization": "Bearer " + authTokens.access
@@ -120,7 +119,7 @@ export const AuthProvider=({children})=>{
           .then(data=>{
                 return data
         })
-          .catch(e=>console.log(e))
+          .catch()
     }
  
 

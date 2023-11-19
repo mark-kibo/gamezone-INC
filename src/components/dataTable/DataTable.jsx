@@ -55,7 +55,7 @@ const DataTable = (props) => {
     headerName: "Actions",
     width: 200,
     renderCell: (params) => {
-      console.log(params.row.id)
+      
       return (
         props.slug !== "expenses" ? (
           <div className="action">

@@ -11,7 +11,7 @@ const User = () => {
 
   let params=useParams()
   let {authTokens}= useContext(AuthContext)
-  console.log(params.id)
+  
   // fetch data of this single product
   const { isLoading, data } = useQuery({
     queryKey: ["allusers"],

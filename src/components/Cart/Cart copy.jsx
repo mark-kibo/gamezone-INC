@@ -29,18 +29,18 @@ const Cart = () => {
                 sale_price: item.itemTotal,
                 quantity_sold: item.quantity,
             };
-            console.log(salesData);
+            
             setLoading(true);
             const data = await postData(salesData);
-            console.log(data);
+            
             if (data['MESSAGE'] || data.error) {
-                console.log(data);
+                
                 setLoading(false);
                 setError(data.error);
                 data['MESSAGE'] ? removeItem(item.id) : "";
             } 
         });
-        console.log(errors);
+        
         
         if (errors.length > 0) {
             setError(errors);
@@ -61,7 +61,7 @@ const Cart = () => {
         return data;
     }
 
-    console.log(error);
+    
     return (
         <div className='cart'>
             {error}

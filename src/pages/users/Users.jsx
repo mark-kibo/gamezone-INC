@@ -41,7 +41,7 @@ const columns = [
 const Users = () => {
   const [open, setOpen] = useState(false);
   const{authTokens}= useContext(AuthContext)
-  console.log(authTokens)
+  
   // TEST THE API
 
   const { isLoading, data } = useQuery({

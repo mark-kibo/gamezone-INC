@@ -15,9 +15,9 @@ import { barChartBoxRevenue, barChartBoxVisit } from "../../data.js";
 const Home = () => {
   const { authTokens }= useContext(AuthContext);
   let [overview, setOverview]=useState([]);
-  // console.log(data)
+  // 
   useEffect(()=>{
-      console.log("me");
+      
       fetch("https://gamezone-rest-api.onrender.com/api/auth/overview/", {
         method:"GET",
         headers:{
@@ -27,7 +27,7 @@ const Home = () => {
       .then(res=>res.json())
       .then(data=>setOverview(data))
   }, [])
-  console.log(overview)
+  
   return (
     <div className="home">
       <div className="box box1">
