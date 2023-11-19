@@ -46,7 +46,7 @@ const Single = (props) => {
             <span className="label-text">Product category</span>
 
           </label>
-          <select className="select select-accent w-full max-w-xs" name="category" defaultValue={props.category} onChange={handleChange}>
+          <select className="select select-accent w-full max-w-xs" name="category" defaultChecked={props.category} onChange={handleChange}>
            
             <option value="Laptops">Laptops</option>
             <option value="Desktops">Desktops</option>
